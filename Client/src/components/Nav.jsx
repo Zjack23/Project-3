@@ -1,11 +1,36 @@
+import { Link } from 'react-router-dom';
+import './Nav.css';
 
-function Nav() {
-  // The Outlet component will conditionally swap between the different pages according to the URL
+const Navbar = () => {
   return (
-    <>
-      <div>Nav in compontents/Nav.jsx</div>
-    </>
+    <nav className="navbar navbar-expand-lg navbar-dark">
+      <div className="container-fluid"> {/* Ensure proper fluid container usage */}
+        <Link className="navbar-brand" to="/">Double O Seven</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">Login</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/signup">Signup</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/comment">Comment</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/welcome">Welcome</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
-}
+};
 
-export default Nav;
+export default Navbar;

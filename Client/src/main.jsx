@@ -1,19 +1,21 @@
-import ReactDOM from 'react-dom/client';
-// Bringing in the required imports from 'react-router-dom' to set up application routing behavior
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+import './Styles.css'; // Import the global CSS file
 
 
-// Bringing in the pages the router will use to conditionally show the appropriate views
 import App from './App.jsx';
-import ErrorPage from './pages/Error';
-import HomePage from './pages/Home';
-import LoginPage from './pages/Login';
+import ErrorPage from './pages/Error.jsx';
+import HomePage from './pages/Home.jsx';
+import WelcomePage from './pages/Welcome.jsx';
+import SignupPage from './pages/Signup.jsx';
+import LoginPage from './pages/Login.jsx';
+import CommentPage from './pages/Comment.jsx';
+// import Detail from './pages/Welcome.jsx';
+import ApolloWrapper from './apolloClient.jsx';
 
-
-// Define the accessible routes, and which components respond to which URL
 const router = createBrowserRouter([
   {
     path: '/',
@@ -22,17 +24,30 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <HomePage />,
+      },
+      {
+        path: '/login',
         element: <LoginPage />,
       },
       {
-        path: '/Home',
-        element: <HomePage />,
+        path: '/signup',
+        element: <SignupPage />,
+      },
+      {
+        path: '/Welcome',
+        element: <WelcomePage />,
+      },
+      {
+        path: '/Comment',
+        element: <CommentPage />,
       },
     ],
   },
 ]);
 
-// Render the RouterProvider component
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <ApolloWrapper>
+    <RouterProvider router={router} />
+  </ApolloWrapper>
 );

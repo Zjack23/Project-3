@@ -15,5 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/client": "^3.10.8",
+    "jwt-decode": "^4.0.0"
   }
 }
