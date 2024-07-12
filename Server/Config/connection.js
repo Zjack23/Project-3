@@ -1,9 +1,5 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
 
-const connection = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/my-database', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/my-database');
 
-module.exports = connection;
+module.exports = mongoose.connection;
