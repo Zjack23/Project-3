@@ -1,0 +1,47 @@
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comment-item {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.comment-line {
+  width: 4px;
+  height: 100%;
+  background-color: #000;
+  margin-right: 12px;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-heading {
+  display: flex;
+  align-items: center;
+  font-size: 16px; /* Increased font size */
+  font-weight: bold; /* Bold font */
+  margin-bottom: 8px;
+}
+
+.comment-author {
+  color: rgba(0, 0, 0, 0.85);
+  margin-right: 8px;
+}
+
+.comment-date {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.comment-text {
+  font-size: 14px; /* Reduced font size for comments */
+  margin-top: 8px;
+}

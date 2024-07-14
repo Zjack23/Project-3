@@ -1,53 +1,40 @@
-
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './index.css';
-import './Styles.css'; // Import the global CSS file
 
-
+import Home from './pages/Home';
+import Comments from './pages/Comments'; // Import the Comments page
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Info from './pages/Info'; // Import the Info page
 import App from './App.jsx';
-import ErrorPage from './pages/Error.jsx';
-import HomePage from './pages/Home.jsx';
-import WelcomePage from './pages/Welcome.jsx';
-import SignupPage from './pages/Signup.jsx';
-import LoginPage from './pages/Login.jsx';
-import CommentPage from './pages/Comment.jsx';
-// import Detail from './pages/Welcome.jsx';
-import ApolloWrapper from './apolloClient.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
+    
     children: [
       {
         index: true,
-        element: <HomePage />,
-      },
-      {
+        element: <Home />
+      }, {
         path: '/login',
-        element: <LoginPage />,
-      },
-      {
+        element: <Login />
+      }, {
         path: '/signup',
-        element: <SignupPage />,
-      },
-      {
-        path: '/Welcome',
-        element: <WelcomePage />,
-      },
-      {
-        path: '/Comment',
-        element: <CommentPage />,
-      },
-    ],
-  },
+        element: <Signup />
+      }, {
+        path: '/comments/:id',
+        element: <Comments /> // Add the Comments route
+      }, {
+        path: '/info',
+        element: <Info /> // Add the Info route
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <ApolloWrapper>
-    <RouterProvider router={router} />
-  </ApolloWrapper>
+  <RouterProvider router={router} />
 );

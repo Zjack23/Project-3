@@ -1,54 +1,87 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { SIGNUP_USER } from '../graphql/mutations';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import Auth from '../utils/auth';
+import { ADD_USER } from '../utils/mutations';
 
-const SignupPage = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
-  const [signup, { data, loading, error }] = useMutation(SIGNUP_USER);
+function Signup(props) {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [addUser] = useMutation(ADD_USER);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await signup({ variables: { username, email, password } });
-      // Assuming response.data contains the data returned by your mutation
-      console.log('Signup successful!', response.data);
-      navigate('/');
-    } catch (err) {
-      console.error('Error signing up:', err);
-    }
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const mutationResponse = await addUser({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
   return (
-    <div className="container">
+    <div className="container my-1">
+      <Link to="/login">← Go to Login</Link>
+
       <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Username</label>
-          <input type="text" className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} required />
+      <form onSubmit={handleFormSubmit}>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="firstName">First Name:</label>
+          <input
+            placeholder="First"
+            name="firstName"
+            type="firstName"
+            id="firstName"
+            onChange={handleChange}
+          />
         </div>
-        <div className="mb-3">
-          <label className="form-label">Email</label>
-          <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <div className="flex-row space-between my-2">
+          <label htmlFor="lastName">Last Name:</label>
+          <input
+            placeholder="Last"
+            name="lastName"
+            type="lastName"
+            id="lastName"
+            onChange={handleChange}
+          />
         </div>
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <div className="flex-row space-between my-2">
+          <label htmlFor="email">Email:</label>
+          <input
+            placeholder="youremail@test.com"
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+          />
         </div>
-        <button type="submit" className="btn btn-primary">Signup</button>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="pwd">Password:</label>
+          <input
+            placeholder="******"
+            name="password"
+            type="password"
+            id="pwd"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row flex-end">
+          <button type="submit">Submit</button>
+        </div>
       </form>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
-      
-      <div className="mt-3">
-        <p>Already signed up? <Link to="/login">Login <i className="bi bi-arrow-right"></i></Link></p>
-      </div>
     </div>
   );
-};
+}
 
-export default SignupPage;
+export default Signup;

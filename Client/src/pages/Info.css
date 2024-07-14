@@ -1,0 +1,101 @@
+/* Info.css */
+.info-container {
+    display: flex;
+    align-items: flex-start;
+    height: 100vh;
+  }
+  
+  .movie-links {
+    padding: 20px;
+  }
+  
+  .movie-links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .movie-links li {
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif; /* Update the font family as needed */
+    margin: 10px 0;
+    border-radius: 5px;
+    width: 200px;
+    transition: transform 0.2s, background 0.2s, color 0.2s;
+    text-align: center; /* Center the text */
+  }
+  
+  .movie-links li:hover,
+  .movie-links li:focus {
+    transform: scale(1.1);
+  }
+  
+  .movie-links li:active {
+    transform: scale(1.15);
+  }
+  
+  .movie-links li:nth-child(1) {
+    background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+  }
+  
+  .movie-links li:nth-child(2) {
+    background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  }
+  
+  .movie-links li:nth-child(3) {
+    background: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 100%);
+  }
+  
+  .movie-links li:nth-child(4) {
+    background: linear-gradient(to bottom, #ff9a9e 0%, #ffdde1 100%);
+  }
+  
+  .movie-links li:nth-child(5) {
+    background: linear-gradient(45deg, #ff9a9e 0%, #ffdde1 100%);
+  }
+  
+  .movie-links li:nth-child(6) {
+    background: linear-gradient(to right, #a6c1ee 0%, #fbc2eb 100%);
+  }
+  
+  .movie-links li:nth-child(7) {
+    background: linear-gradient(to top, #ff9a9e 0%, #fad0c4 100%);
+  }
+  
+  .movie-links li:nth-child(8) {
+    background: linear-gradient(to left, #fbc2eb 0%, #a6c1ee 100%);
+  }
+  
+  .movie-links li:nth-child(9) {
+    background: linear-gradient(to right, #ff9a9e 0%, #ffdde1 100%);
+  }
+  
+  .movie-links li:nth-child(10) {
+    background: linear-gradient(to top, #a6c1ee 0%, #fbc2eb 100%);
+  }
+  
+  .movie-links li:nth-child(11) {
+    background: linear-gradient(to bottom, #ff9a9e 0%, #fad0c4 100%);
+  }
+  
+  .movie-links li:nth-child(12) {
+    background: linear-gradient(to left, #fbc2eb 0%, #a6c1ee 100%);
+  }
+  
+  .movie-info {
+    padding: 20px;
+    max-width: 600px;
+    font-family: 'Arial', sans-serif; /* Update the font family as needed */
+  }
+  
+  .movie-info h2 {
+    margin-top: 0;
+  }
+  
+  .movie-info p {
+    margin-bottom: 10px;
+  }
+  
