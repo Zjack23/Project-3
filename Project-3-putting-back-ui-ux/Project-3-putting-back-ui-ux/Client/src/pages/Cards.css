@@ -1,0 +1,81 @@
+/* src/components/Card.css */
+
+/* General card styling */
+.card {
+  border: 5px double #ddd; /* Thicker double border */
+  padding: 5px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px; /* Adjusted width for larger cards */
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.card-image-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 250px; /* Adjust container height to match max-height of image */
+}
+
+.card-image {
+  width: 100%; /* Adjust image width to fill container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+  object-fit: cover; /* Ensure image covers its container */
+  max-width: 100%; /* Ensure image doesn't overflow container */
+  max-height: 100%; /* Ensure image doesn't overflow container */
+}
+
+.feedback {
+  display: flex;
+  align-items: center;
+  margin-top: auto; /* Push feedback section to the bottom */
+}
+
+.feedback button {
+  font-size: 16px;
+  font-weight: bold; /* Make font bold */
+  font-family: 'Arial', sans-serif; /* Change font family */
+}
+
+/* Thumb styles */
+.thumb {
+  border: none;
+  background: none;
+  font-size: 24px;
+  font-weight: bold; /* Make font bold */
+  cursor: pointer;
+  padding: 0;
+  margin: 0 10px;
+  font-family: 'Arial', sans-serif; /* Change font family */
+}
+
+.thumb-up {
+  color: blue;
+}
+
+.thumb-down {
+  color: blue;
+}
+
+/* Adjusting for grid layout */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Adjusted min width for grid items */
+  gap: 20px;
+}
