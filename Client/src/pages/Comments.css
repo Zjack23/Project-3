@@ -1,6 +1,8 @@
 .container {
   width: 80%;
   margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
 }
 
 .comment-list {
@@ -11,11 +13,13 @@
 .comment-item {
   display: flex;
   margin-bottom: 16px;
+  border-bottom: 1px solid #ddd; /* Adding a bottom border to each comment */
+  padding-bottom: 10px; /* Adding padding at the bottom of each comment */
+  border-right: double 4px #000; /* Double right border for each comment */
 }
 
 .comment-line {
   width: 4px;
-  height: 100%;
   background-color: #000;
   margin-right: 12px;
 }
@@ -44,4 +48,38 @@
 .comment-text {
   font-size: 14px; /* Reduced font size for comments */
   margin-top: 8px;
+}
+
+.gray-bg {
+  background-color: #f1f1f1;
+}
+
+.white-bg {
+  background-color: #fff;
+}
+
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.comment-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #0056b3;
 }

@@ -63,7 +63,7 @@ const Comments = () => {
 
   return (
     <div className="container">
-      <h2>Comments for Movie {id}</h2>
+      <h2>Movie Reviews </h2>
 
       {/* Toggle Form Button */}
       <button onClick={toggleForm}>Add Comment</button>

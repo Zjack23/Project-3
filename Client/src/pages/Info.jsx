@@ -3,8 +3,8 @@ import './Info.css';
 
 function Info() {
   const movies = [
-    { 
-      name: 'Dr. No', 
+    {
+      name: 'Dr. No',
       info: (
         <>
           <h2>Dr. No</h2>
@@ -17,9 +17,10 @@ function Info() {
           <p><strong>Director:</strong> Terence Young</p>
           <p><strong>Stars:</strong> Sean Connery, Ursula Andress, Bernard Lee</p>
         </>
-      ) 
+      ),
+      youtubeId: 'pw61uyA0F8A'
     },
-    { 
+    {
       name: 'From Russia With Love',
       info: (
         <>
@@ -34,9 +35,10 @@ function Info() {
           <p><strong>Director:</strong> Terence Young</p>
           <p><strong>Stars:</strong> Sean Connery, Robert Shaw, Lotte Lenya</p>
         </>
-      )
+      ),
+      youtubeId: '9EHiS0dU5GI'
     },
-    { 
+    {
       name: 'Goldfinger',
       info: (
         <>
@@ -51,9 +53,10 @@ function Info() {
           <p><strong>Director:</strong> Guy Hamilton</p>
           <p><strong>Stars:</strong> Sean Connery, Gert Fröbe, Honor Blackman</p>
         </>
-      )
+      ),
+      youtubeId: 'MA65V-oLKa8?si'
     },
-    { 
+    {
       name: 'License to Kill',
       info: (
         <>
@@ -68,9 +71,10 @@ function Info() {
           <p><strong>Director:</strong> John Glen</p>
           <p><strong>Stars:</strong> Timothy Dalton, Robert Davi, Carey Lowell</p>
         </>
-      )
+      ),
+      youtubeId: 'quHQAuO0lkg'
     },
-    { 
+    {
       name: 'GoldenEye',
       info: (
         <>
@@ -85,9 +89,10 @@ function Info() {
           <p><strong>Director:</strong> Martin Campbell</p>
           <p><strong>Stars:</strong> Pierce Brosnan, Sean Bean, Izabella Scorupco</p>
         </>
-      )
+      ),
+      youtubeId: '8Zw8ylP4buA'
     },
-    { 
+    {
       name: 'Tomorrow Never Dies',
       info: (
         <>
@@ -102,9 +107,10 @@ function Info() {
           <p><strong>Director:</strong> Roger Spottiswoode</p>
           <p><strong>Stars:</strong> Pierce Brosnan, Jonathan Pryce, Michelle Yeoh</p>
         </>
-      )
+      ),
+      youtubeId: 'eqrk7-mx2D0'
     },
-    { 
+    {
       name: 'Die Another Day',
       info: (
         <>
@@ -119,9 +125,10 @@ function Info() {
           <p><strong>Director:</strong> Lee Tamahori</p>
           <p><strong>Stars:</strong> Pierce Brosnan, Halle Berry, Rosamund Pike</p>
         </>
-      )
+      ),
+      youtubeId: 'GTznf1x4khc'
     },
-    { 
+    {
       name: 'Casino Royale',
       info: (
         <>
@@ -138,9 +145,10 @@ function Info() {
           <p><strong>Director:</strong> Martin Campbell</p>
           <p><strong>Stars:</strong> Daniel Craig, Eva Green, Judi Dench</p>
         </>
-      )
+      ),
+      youtubeId: 'UqIcnyHi4n0'
     },
-    { 
+    {
       name: 'Quantum of Solace',
       info: (
         <>
@@ -155,9 +163,10 @@ function Info() {
           <p><strong>Director:</strong> Marc Forster</p>
           <p><strong>Stars:</strong> Daniel Craig, Olga Kurylenko, Mathieu Amalric</p>
         </>
-      )
+      ),
+      youtubeId: 'BBqYaFEWBxI'
     },
-    { 
+    {
       name: 'Skyfall',
       info: (
         <>
@@ -172,14 +181,51 @@ function Info() {
           <p><strong>Director:</strong> Sam Mendes</p>
           <p><strong>Stars:</strong> Daniel Craig, Javier Bardem, Naomie Harris</p>
         </>
-      )
-    }
+      ),
+      youtubeId: '6kw1UVovByw'
+    },
+    {
+      name: 'Spectre',
+      info: (
+        <>
+          <h2>Spectre</h2>
+          <p>2015 | 2h 28min | PG-13</p>
+          <p>Genres: Action, Adventure, Thriller</p>
+          <p>IMDb Rating: 6.8/10</p>
+          <p>
+            Daniel Craig in Spectre (2015)
+          </p>
+          <p>James Bond's investigation into the mysterious organisation Spectre uncovers a sinister connection to his own past.</p>
+          <p><strong>Director:</strong> Sam Mendes</p>
+          <p><strong>Stars:</strong> Daniel Craig, Christoph Waltz, Léa Seydoux</p>
+        </>
+      ),
+      youtubeId: '7GqClqvlObY'
+    },
+    {
+      name: 'No Time to Die',
+      info: (
+        <>
+          <h2>No Time to Die</h2>
+          <p>2021 | 2h 43min | PG-13</p>
+          <p>Genres: Action, Adventure, Thriller</p>
+          <p>IMDb Rating: 7.5/10</p>
+          <p>
+            Daniel Craig in No Time to Die (2021)
+          </p>
+          <p>James Bond has left active service. His peace is short-lived when Felix Leiter, an old friend from the CIA, turns up asking for help, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.</p>
+          <p><strong>Director:</strong> Cary Joji Fukunaga</p>
+          <p><strong>Stars:</strong> Daniel Craig, Ana de Armas, Rami Malek</p>
+        </>
+      ),
+      youtubeId: 'BIhNsAtPbPI'
+    },
   ];
 
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const handleMovieClick = (index) => {
-    setSelectedMovie(movies[index].info);
+    setSelectedMovie(movies[index]);
   };
 
   return (
@@ -197,7 +243,20 @@ function Info() {
         <div className="movie-info">
           {selectedMovie ? (
             <>
-              {selectedMovie}
+              {selectedMovie.info}
+              {selectedMovie.youtubeId && (
+                <div className="youtube-video">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src={`https://www.youtube.com/embed/${selectedMovie.youtubeId}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="YouTube video player"
+                  ></iframe>
+                </div>
+              )}
             </>
           ) : (
             <p>Select a movie from the list to see details.</p>
