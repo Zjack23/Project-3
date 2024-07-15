@@ -15,10 +15,7 @@ const router = createBrowserRouter([
     element: <App />,
     
     children: [
-      {
-        index: true,
-        element: <Home />
-      }, {
+       {
         path: '/login',
         element: <Login />
       }, {
@@ -28,7 +25,8 @@ const router = createBrowserRouter([
         path: '/comments/:id',
         element: <Comments /> // Add the Comments route
       }, {
-        path: '/info',
+        path: '/',
+        index: true,
         element: <Info /> // Add the Info route
       }
     ]

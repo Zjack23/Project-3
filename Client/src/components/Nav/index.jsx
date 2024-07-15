@@ -12,9 +12,6 @@ function Nav() {
             <Link to="/">Home</Link>
           </BreadcrumbItem>
           <BreadcrumbItem>
-            <Link to="/info">Info</Link> {/* Adjust with your actual links */}
-          </BreadcrumbItem>
-          <BreadcrumbItem>
             <BreadcrumbLink href="/" onClick={() => Auth.logout()}>
               Logout
             </BreadcrumbLink>
@@ -24,12 +21,6 @@ function Nav() {
     } else {
       return (
         <Breadcrumb separator="-">
-          <BreadcrumbItem>
-            <Link to="/">Home</Link>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <Link to="/info">Info</Link> {/* Adjust with your actual links */}
-          </BreadcrumbItem>
           <BreadcrumbItem>
             <BreadcrumbLink href="/signup">Signup</BreadcrumbLink>
           </BreadcrumbItem>

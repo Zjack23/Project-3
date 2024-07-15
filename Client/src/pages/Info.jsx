@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Info.css';
 
 function Info() {
@@ -228,6 +228,8 @@ function Info() {
     setSelectedMovie(movies[index]);
   };
 
+  useEffect(() => handleMovieClick(0), []);
+
   return (
     <div className="info-container">
       <div className="movie-links">
@@ -240,9 +242,12 @@ function Info() {
         </ul>
       </div>
       <div className="main-content">
+
         <div className="movie-info">
           {selectedMovie ? (
+
             <>
+              <div>
               {selectedMovie.info}
               {selectedMovie.youtubeId && (
                 <div className="youtube-video">
@@ -257,11 +262,22 @@ function Info() {
                   ></iframe>
                 </div>
               )}
-            </>
+              </div>
+
+             <button onClick={() => {
+              console.log(selectedMovie);
+             }}>I WATCHED IT AGAIN!</button>
+
+             <span>Watched: 101 times</span>
+
+             </>
+
           ) : (
             <p>Select a movie from the list to see details.</p>
           )}
         </div>
+
+
       </div>
     </div>
   );
