@@ -13,7 +13,8 @@
 
 ## Screenshot
 
- ![image](https://github.com/user-attachments/assets/5fc52eeb-d65a-4e7a-b7e3-5f6694a77a40)
+![image (1)](https://github.com/user-attachments/assets/fa2c88c5-bcec-4daa-bd13-22d7e967ce67)
+
 
 
 ## Contributing
@@ -26,4 +27,4 @@
 
 For any questions, please reach out via:
 
-- GitHub: [zjack23](https://github.com/zjack23)
+- GitHub: [RoxD90](https://github.com/RoxD90)
